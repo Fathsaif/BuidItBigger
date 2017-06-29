@@ -40,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+        JokeLoader jokeLoader  = new JokeLoader(this);
+        jokeLoader.execute();
         Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
     }
-
 
 }

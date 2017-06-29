@@ -2,6 +2,7 @@ package com.example.saif.displayjoke;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ public class DisplayJoke extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_joke);
         Intent intent = getIntent();
-        String joke = intent.getStringExtra("Joke");
+        String joke = intent.getStringExtra("joke");
 
         jokeTv = (TextView)findViewById(R.id.joke_text);
         jokeTv.setText(joke);

@@ -13,6 +13,8 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
 
+import static com.udacity.gradle.builditbigger.Constants.JOKE;
+
 /**
  * Created by Saif on 21/06/2017.
  */
@@ -49,7 +51,7 @@ public class JokeLoader extends AsyncTask <Void,Void,String>{
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         Intent intent = new Intent(context, DisplayJoke.class);
-        intent.putExtra("Joke",s);
+        intent.putExtra("joke",s);
         context.startActivity(intent);
     }
 }
