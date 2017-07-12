@@ -3,6 +3,9 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.ProgressBar;
+
 import com.example.saif.displayjoke.DisplayJoke;
 import com.example.saif.myapplication.backend.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -21,11 +24,14 @@ import static com.udacity.gradle.builditbigger.Constants.JOKE;
 public class JokeLoader extends AsyncTask <Void,Void,String>{
     private static MyApi myApi = null;
     private Context context;
-    public JokeLoader (Context context){
+    ProgressBar progressBar;
+    public JokeLoader (Context context,ProgressBar progress){
         this.context = context;
+        progressBar = progress;
     }
     @Override
     protected String doInBackground(Void... params) {
+
         if(myApi == null){
 
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
@@ -52,5 +58,6 @@ public class JokeLoader extends AsyncTask <Void,Void,String>{
         Intent intent = new Intent(context, DisplayJoke.class);
         intent.putExtra("joke",s);
         context.startActivity(intent);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 }
