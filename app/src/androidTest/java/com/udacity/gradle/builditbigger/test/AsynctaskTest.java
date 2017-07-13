@@ -26,7 +26,7 @@ public class AsynctaskTest extends AndroidTestCase {
         try{
 
             MainActivity mainActivity = new MainActivity();
-            JokeLoader jokeLoader = new JokeLoader(mainActivity);
+            JokeLoader jokeLoader = new JokeLoader(mainActivity,null);
             jokeLoader.execute();
             String result = jokeLoader.get(30, TimeUnit.SECONDS);
 
